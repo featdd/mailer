@@ -1,0 +1,62 @@
+<html data-namespace-typo3-fluid="true" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:mailer="http://typo3.org/ns/Featdd/Mailer/ViewHelpers"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+  <h1>Example Form</h1>
+
+  <mailer:form object="{form}" enctype="multipart/form-data" additionalAttributes="{novalidate: ''}">
+
+    <div class="form-group{f:if(condition: validationResult.subResults.salutation.errors, then: ' is-invalid')}">
+      <label for="salutation">{f:translate(key: 'form.salutation')}</label>
+      <f:form.select property="salutation" options="{salutations}" id="salutation" class="form-control"/>
+      <f:if condition="{validationResult.subResults.salutation.errors}">
+        <div class="invalid-feedback">{validationResult.subResults.salutation.errors.0.message}</div>
+      </f:if>
+    </div>
+
+    <div class="form-group">
+      <label for="name">{f:translate(key: 'form.name')}</label>
+      <f:form.textfield property="name" id="name" class="form-control{f:if(condition: validationResult.subResults.name.errors, then: ' is-invalid')}"/>
+      <f:if condition="{validationResult.subResults.name.errors}">
+        <div class="invalid-feedback">{validationResult.subResults.name.errors.0.message}</div>
+      </f:if>
+    </div>
+
+    <div class="form-group">
+      <label for="date">{f:translate(key: 'form.date')}</label>
+      <f:form.textfield property="date" type="date" id="date" class="form-control{f:if(condition: validationResult.subResults.date.errors, then: ' is-invalid')}" additionalAttributes="{min: '{f:format.date(date: \'now\', format: \'Y-m-d\')}'}"/>
+      <f:if condition="{validationResult.subResults.date.errors}">
+        <div class="invalid-feedback">{validationResult.subResults.date.errors.0.message}</div>
+      </f:if>
+    </div>
+
+    <div class="form-group">
+      <label for="email">{f:translate(key: 'form.email')}</label>
+      <f:form.textfield property="email" type="email" id="email" class="form-control{f:if(condition: validationResult.subResults.email.errors, then: ' is-invalid')}"/>
+      <f:if condition="{validationResult.subResults.email.errors}">
+        <div class="invalid-feedback">{validationResult.subResults.email.errors.0.message}</div>
+      </f:if>
+    </div>
+
+    <div class="form-group">
+      <label for="email">{f:translate(key: 'form.message')}</label>
+      <f:form.textarea property="message" id="message" class="form-control{f:if(condition: validationResult.subResults.message.errors, then: ' is-invalid')}"/>
+      <f:if condition="{validationResult.subResults.message.errors}">
+        <div class="invalid-feedback">{validationResult.subResults.message.errors.0.message}</div>
+      </f:if>
+    </div>
+
+    <div class="form-group">
+      <label for="file">{f:translate(key: 'form.file')}</label>
+      <f:form.upload property="file" id="file" class="form-control{f:if(condition: validationResult.subResults.file.errors, then: ' is-invalid')}"/>
+      <f:if condition="{validationResult.subResults.file.errors}">
+        <div class="invalid-feedback">{validationResult.subResults.file.errors.0.message}</div>
+      </f:if>
+    </div>
+
+    <f:form.button class="btn btn-primary">Absenden</f:form.button>
+
+  </mailer:form>
+
+</html>

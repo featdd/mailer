@@ -1,0 +1,34 @@
+<html data-namespace-typo3-fluid="true" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+  <h1>Formular Anfrage</h1>
+
+  <table>
+    <tbody>
+      <tr>
+        <th style="text-align: left">Anrede:</th>
+        <td>{f:translate(key: 'form.salutation.{form.salutation}', extensionName: 'mailer')}</td>
+      </tr>
+      <tr>
+        <th style="text-align: left">Name:</th>
+        <td>{form.name}</td>
+      </tr>
+      <tr>
+        <th style="text-align: left">Datum:</th>
+        <td>{form.date -> f:format.date(format: 'd.m.Y')}</td>
+      </tr>
+      <tr>
+        <th style="text-align: left">E-Mail:</th>
+        <td>
+          <a href="mailto:{form.email}">{form.email}</a>
+        </td>
+      </tr>
+      <tr>
+        <th style="text-align: left">Nachricht:</th>
+        <td>{form.message}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</html>
