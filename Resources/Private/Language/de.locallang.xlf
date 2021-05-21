@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file source-language="de" target-language="en" datatype="plaintext" original="messages" product-name="mailer">
+    <header/>
+    <body>
+      <trans-unit id="plugin.form.title">
+        <target>Formular</target>
+      </trans-unit>
+      <trans-unit id="plugin.form.description">
+        <target>Ein Formular mit voreingestellten Feldern und festgelegten Optionen</target>
+      </trans-unit>
+
+
+      <trans-unit id="tca.tt_content.palette.mailer_general">
+        <target>Allgemeine Formular Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="tca.tt_content.tabs.form_settings">
+        <target>Formular Einstellungen</target>
+      </trans-unit>
+      <trans-unit id="tca.form">
+        <target>Formular</target>
+      </trans-unit>
+      <trans-unit id="tca.form.select_a_form">
+        <target>Formular auswählen</target>
+      </trans-unit>
+
+
+      <trans-unit id="finisher.email.palette_label">
+        <target>E-Mail Konfiguration</target>
+      </trans-unit>
+      <trans-unit id="finisher.email.receiver_name">
+        <target>Empfänger Name</target>
+      </trans-unit>
+      <trans-unit id="finisher.email.receiver_email">
+        <target>Empfänger E-Mail Adresse</target>
+      </trans-unit>
+
+
+      <trans-unit id="wizard.default.title">
+        <target>Formular</target>
+      </trans-unit>
+      <trans-unit id="wizard.default.description">
+        <target>Wählen Sie ein benutzerdefiniertes Formular</target>
+      </trans-unit>
+      <trans-unit id="wizard.example.title">
+        <target>Beispiel Formular</target>
+      </trans-unit>
+      <trans-unit id="wizard.example.description">
+        <target>Einfaches Beispielformular für Testzwecke</target>
+      </trans-unit>
+
+
+      <trans-unit id="form.salutation">
+        <target>Anrede</target>
+      </trans-unit>
+      <trans-unit id="form.salutation.please_select">
+        <target>Bitte auswählen</target>
+      </trans-unit>
+      <trans-unit id="form.salutation.mr">
+        <target>Herr</target>
+      </trans-unit>
+      <trans-unit id="form.salutation.ms">
+        <target>Frau</target>
+      </trans-unit>
+      <trans-unit id="form.name">
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="form.date">
+        <target>Datum</target>
+      </trans-unit>
+      <trans-unit id="form.email">
+        <target>E-Mail</target>
+      </trans-unit>
+      <trans-unit id="form.message">
+        <target>Nachricht</target>
+      </trans-unit>
+      <trans-unit id="form.file">
+        <target>Datei</target>
+      </trans-unit>
+
+
+      <trans-unit id="validation.already_submitted">
+        <target>Das Formular wurde bereits abgeschickt</target>
+      </trans-unit>
+      <trans-unit id="validation.recaptcha">
+        <target>Die reCAPTCHA-Prüfung ist fehlgeschlagen, bitte versuchen Sie es erneut</target>
+      </trans-unit>
+      <trans-unit id="validation.not_empty">
+        <target>Dieses Feld darf nicht leer bleiben</target>
+      </trans-unit>
+      <trans-unit id="validation.email">
+        <target>Ihre Eingabe keine ist gültige E-Mail Adresse</target>
+      </trans-unit>
+      <trans-unit id="validation.date">
+        <target>Ihre Eingabe ist kein gültiges Datum</target>
+      </trans-unit>
+
+
+      <trans-unit id="error.header">
+        <target>Es ist ein Fehler aufgetreten</target>
+      </trans-unit>
+      <trans-unit id="error.message">
+        <target>Bitte probieren Sie es zu einem späteren Zeitpunkt noch einmal.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

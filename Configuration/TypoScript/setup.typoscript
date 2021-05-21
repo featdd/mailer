@@ -1,0 +1,54 @@
+plugin.tx_mailer {
+  view {
+    templateRootPaths.0 = {$plugin.tx_mailer.view.templateRootPath}
+    partialRootPaths.0 = {$plugin.tx_mailer.view.partialRootPath}
+    layoutRootPaths.0 = {$plugin.tx_mailer.view.layoutRootPath}
+  }
+
+  settings {
+    addJavaScript = {$plugin.tx_mailer.settings.addJavaScript}
+    addCss = {$plugin.tx_mailer.settings.addStylesheet}
+
+    javaScriptConfiguration {
+      validClassName = {$plugin.tx_mailer.settings.javaScriptConfiguration.validClassName}
+      errorClassName = {$plugin.tx_mailer.settings.javaScriptConfiguration.errorClassName}
+      errorMessageTag = {$plugin.tx_mailer.settings.javaScriptConfiguration.errorMessageTag}
+      errorMessageClassName = {$plugin.tx_mailer.settings.javaScriptConfiguration.errorMessageClassName}
+    }
+
+    api {
+      xhr {
+        pageType = {$plugin.tx_mailer.settings.api.xhr.pageType}
+      }
+    }
+  }
+}
+
+mailerXhr = PAGE
+mailerXhr {
+  config {
+    disableAllHeaderCode = 1
+    xhtml_cleaning = 0
+    admPanel = 0
+    no_cache = 1
+    debug = 0
+    additionalHeaders {
+      10 {
+        header = Content-Type:application/json
+        replace = 1
+      }
+    }
+  }
+
+  typeNum = {$plugin.tx_mailer.settings.api.xhr.pageType}
+
+  10 = USER
+  10 {
+    userFunc = TYPO3\CMS\Extbase\Core\Bootstrap->run
+    vendorName = Featdd
+    extensionName = Mailer
+    pluginName = Form
+    controller = Form
+    settings < plugin.tx_mailer.settings
+  }
+}

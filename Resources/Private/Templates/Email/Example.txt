@@ -1,0 +1,9 @@
+Formular Anfrage
+
+Anrede: {f:translate(key: 'form.salutation.{form.salutation}', extensionName: 'mailer')}
+Name:   {form.name}
+Datum:  <f:format.date format="d.m.Y">{form.date}</f:format.date>
+E-Mail: {form.email}
+
+Nachricht:
+{form.message}

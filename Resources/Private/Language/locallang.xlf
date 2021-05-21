@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" product-name="mailer">
+    <header/>
+    <body>
+      <trans-unit id="plugin.form.title">
+        <source>Form</source>
+      </trans-unit>
+      <trans-unit id="plugin.form.description">
+        <source>A form with preset fields and fixed options</source>
+      </trans-unit>
+
+
+      <trans-unit id="tca.tt_content.palette.mailer_general">
+        <source>General form settings</source>
+      </trans-unit>
+      <trans-unit id="tca.tt_content.tabs.form_settings">
+        <source>Form settings</source>
+      </trans-unit>
+      <trans-unit id="tca.form">
+        <source>Form</source>
+      </trans-unit>
+      <trans-unit id="tca.form.select_a_form">
+        <target>Select form</target>
+      </trans-unit>
+
+
+      <trans-unit id="finisher.email.palette_label">
+        <source>E-Mail configuration</source>
+      </trans-unit>
+      <trans-unit id="finisher.email.receiver_name">
+        <source>Receiver Name</source>
+      </trans-unit>
+      <trans-unit id="finisher.email.receiver_email">
+        <source>Receiver E-Mail Adress</source>
+      </trans-unit>
+
+
+      <trans-unit id="wizard.default.title">
+        <source>Form</source>
+      </trans-unit>
+      <trans-unit id="wizard.default.description">
+        <source>Select a custom form</source>
+      </trans-unit>
+      <trans-unit id="wizard.example.title">
+        <source>Example Form</source>
+      </trans-unit>
+      <trans-unit id="wizard.example.description">
+        <source>Simple example form for testing purposes</source>
+      </trans-unit>
+
+
+      <trans-unit id="form.salutation">
+        <source>Salutation</source>
+      </trans-unit>
+      <trans-unit id="form.salutation.please_select">
+        <source>Please select</source>
+      </trans-unit>
+      <trans-unit id="form.salutation.mr">
+        <source>Mr</source>
+      </trans-unit>
+      <trans-unit id="form.salutation.ms">
+        <source>Ms</source>
+      </trans-unit>
+      <trans-unit id="form.name">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="form.date">
+        <source>Date</source>
+      </trans-unit>
+      <trans-unit id="form.email">
+        <source>E-Mail</source>
+      </trans-unit>
+      <trans-unit id="form.message">
+        <source>Message</source>
+      </trans-unit>
+      <trans-unit id="form.file">
+        <source>File</source>
+      </trans-unit>
+
+
+      <trans-unit id="validation.already_submitted">
+        <source>The form has already been sent</source>
+      </trans-unit>
+      <trans-unit id="validation.recaptcha">
+        <source>The reCAPTCHA check failed, please try again</source>
+      </trans-unit>
+      <trans-unit id="validation.not_empty">
+        <source>This field must not be empty</source>
+      </trans-unit>
+      <trans-unit id="validation.email">
+        <source>Your input is not a valid e-mail address</source>
+      </trans-unit>
+      <trans-unit id="validation.date">
+        <source>Your input is not a valid date</source>
+      </trans-unit>
+
+
+      <trans-unit id="error.header">
+        <source>An error has occurred</source>
+      </trans-unit>
+      <trans-unit id="error.message">
+        <source>Please try again later.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

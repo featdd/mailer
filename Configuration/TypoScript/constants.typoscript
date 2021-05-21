@@ -1,0 +1,38 @@
+plugin.tx_mailer {
+  view {
+    # cat=mailer/file; type=string; label=Path to template root (FE)
+    templateRootPath = EXT:mailer/Resources/Private/Templates/
+    # cat=mailer/file; type=string; label=Path to template partials (FE)
+    partialRootPath = EXT:mailer/Resources/Private/Partials/
+    # cat=mailer/file; type=string; label=Path to template layouts (FE)
+    layoutRootPath = EXT:mailer/Resources/Private/Layouts/
+  }
+
+  # customsubcategory=settings=Settings
+  settings {
+    # cat=mailer/settings/a; type=bool; label=Add JavaScript
+    addJavaScript = 1
+    # cat=mailer/settings/a; type=bool; label=Add Stylesheet
+    addStylesheet = 1
+
+    # customsubcategory=javaScriptConfiguration=JavaScript configuration
+    javaScriptConfiguration {
+      # cat=mailer/javaScriptConfiguration/a; type=string; label=Class name used for validation success
+      validClassName = is-valid
+      # cat=mailer/javaScriptConfiguration/a; type=string; label=Class name used for validation errors
+      errorClassName = is-invalid
+      # cat=mailer/javaScriptConfiguration/a; type=string; label=Tag used to wrap the error message
+      errorMessageTag = div
+      # cat=mailer/javaScriptConfiguration/a; type=string; label=Class for the error message container
+      errorMessageClassName = invalid-feedback
+    }
+
+    # customsubcategory=api=API Settings
+    api {
+      xhr {
+        # cat=mailer/api/a; type=int; label=Page Type for XHR request
+        pageType = 4815162342
+      }
+    }
+  }
+}

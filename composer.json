@@ -1,0 +1,39 @@
+{
+  "name": "featdd/mailer",
+  "type": "typo3-cms-extension",
+  "description": "Mail form extension for simply or most advanced form integration",
+  "homepage": "https://extensions.typo3.org/extension/mailer",
+  "license": [
+    "GPL-2.0-or-later"
+  ],
+  "authors": [
+    {
+      "name": "Daniel Dorndorf",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/featdd/mailer/issues",
+    "source": "https://github.com/featdd/mailer",
+    "docs": "https://docs.typo3.org/p/featdd/mailer/1.0/en-us/"
+  },
+  "require": {
+    "php": "~7.4||~8.0",
+    "ext-json": "*",
+    "ext-curl": "*",
+    "typo3/cms-core": "~11.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Featdd\\Mailer\\": "Classes"
+    }
+  },
+  "replace": {
+    "typo3-ter/mailer": "self.version"
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "mailer"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+templates:
+  form: 'Form/Example'
+  submit: 'EXT:mailer/Resources/Private/Templates/Form/ExampleSubmitted.html'
+  variables:
+    salutations:
+      mr: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:form.salutation.mr'
+      ms: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:form.salutation.ms'
+
+multipleDispatchAllowed: true
+
+wizard:
+  title: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:wizard.example.title'
+  description: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:wizard.example.description'
+  icon: 'content-form'
+
+tca: 'EXT:mailer/Configuration/TCA/Forms/Contactform.php'
+
+#validators:
+#  - validator: 'Featdd\Mailer\Validation\Validator\RecaptchaValidator'
+#    message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.recaptcha'
+#    options:
+#      secret: 'SECRET'
+
+fields:
+  salutation:
+    validators:
+      - validator: 'NotEmpty'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.not_empty'
+  name:
+    validators:
+      - validator: 'NotEmpty'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.not_empty'
+  date:
+    validators:
+      - validator: 'TYPO3\CMS\Extbase\Validation\Validator\DateTimeValidator'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.date'
+    typeConverter:
+      class: 'DateTimeConverter'
+      options:
+        dateFormat: 'Y-m-d'
+  email:
+    validators:
+      - validator: 'NotEmpty'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.not_empty'
+      - validator: 'EmailAddress'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.email'
+  message:
+    validators:
+      - validator: 'NotEmpty'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.not_empty'
+  file:
+    validators:
+      - validator: 'NotEmpty'
+        message: 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:validation.not_empty'
+    typeConverter:
+      class: 'Featdd\Mailer\Property\TypeConverter\UploadFileTypeConverter'
+      options:
+        uploadFolderIdentifier: '0:/uploads/mailer'
+        folderName: 'example_{email}_{submitDateTime}'
+
+finisher:
+  - class: 'Featdd\Mailer\Finisher\EmailFinisher'
+    options:
+      template: 'EXT:mailer/Resources/Private/Templates/Email/Example.html'
+      subject: 'Neue Formular Anfrage von {name}'
+      fromName: '{name}'
+      fromEmail: '{email}'
+      toName: 'Max Mustermann'
+      toEmail: 'mustermann@test.de'
+
+#  - class: 'Featdd\Mailer\Finisher\RedirectFinisher'
+#    options:
+#      target: 't3://page?uid=5'

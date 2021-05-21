@@ -1,0 +1,20 @@
+<html data-namespace-typo3-fluid="true" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+  <f:if condition="{errors}">
+    <div class="invalid-feedback">
+      <f:if condition="1 < {errors -> f:count()}">
+        <f:then>
+          <ul>
+            <f:for each="{errors}" as="error">
+              <li>{error.message}</li>
+            </f:for>
+          </ul>
+        </f:then>
+        <f:else>{errors.0.message}</f:else>
+      </f:if>
+    </div>
+  </f:if>
+
+</html>

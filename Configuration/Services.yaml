@@ -1,0 +1,28 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  cache.mailer_configurations:
+    class: TYPO3\CMS\Core\Cache\Frontend\PhpFrontend
+    factory: [ '@TYPO3\CMS\Core\Cache\CacheManager', 'getCache' ]
+    arguments: [ 'mailer_configurations' ]
+
+  Featdd\Mailer\:
+    resource: '../Classes/*'
+    exclude: '../Classes/{Domain/Model,Utility}'
+
+  Featdd\Mailer\Service\ConfigurationService:
+    arguments:
+      $cache: '@cache.mailer_configurations'
+
+  Featdd\Mailer\EventListener\AfterTcaCompilationEventListener:
+    tags:
+      - name: event.listener
+        event: TYPO3\CMS\Core\Configuration\Event\AfterTcaCompilationEvent
+
+  Featdd\Mailer\EventListener\AlterTableDefinitionStatementsEventListener:
+    tags:
+      - name: event.listener
+        event: TYPO3\CMS\Core\Database\Event\AlterTableDefinitionStatementsEvent
