@@ -1,0 +1,10 @@
+.invalid-feedback {
+  & ul {
+    padding-left: 1rem;
+  }
+
+  form.is-invalid & {
+    display: block;
+    margin-bottom: .5rem;
+  }
+}

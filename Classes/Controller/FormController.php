@@ -24,6 +24,7 @@ use Featdd\Mailer\View\TemplateView;
 use Psr\Http\Message\ResponseInterface;
 use Throwable;
 use TYPO3\CMS\Core\Core\Environment;
+use TYPO3\CMS\Core\Http\ImmediateResponseException;
 use TYPO3\CMS\Core\Http\JsonResponse;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
@@ -253,13 +254,26 @@ class FormController extends ActionController
     /**
      * @throws \TYPO3\CMS\Extbase\Mvc\Controller\Exception\RequiredArgumentMissingException
      * @throws \TYPO3\CMS\Extbase\Mvc\Exception\InvalidArgumentNameException
+     * @throws \TYPO3\CMS\Core\Http\ImmediateResponseException
      */
     protected function mapRequestArgumentsToControllerArguments(): void
     {
         try {
             parent::mapRequestArgumentsToControllerArguments();
         } catch (PropertyException $exception) {
-            if ($exception->getPrevious() instanceof TypeConverterException) {
+            if (true === $this->isXhrRequest) {
+                throw new ImmediateResponseException(
+                    (new JsonResponse([
+                        'errors' => [
+                            'form' => [
+                                Environment::getContext()->isDevelopment()
+                                    ? $exception->getMessage()
+                                    : LocalizationUtility::translate('validation.form_error', 'mailer'),
+                            ],
+                        ],
+                    ]))->withStatus(400)
+                );
+            } elseif ($exception->getPrevious() instanceof TypeConverterException) {
                 $this->forwardWithException($exception->getPrevious());
             }
         }

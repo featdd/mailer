@@ -289,7 +289,9 @@ class ConfigurationService implements SingletonInterface
                 }
 
                 try {
-                    $item = GeneralUtility::callUserFunction($item, $configuration, $this);
+                    if (false !== strpos($item, '->')) {
+                        $item = GeneralUtility::callUserFunction($item, $configuration, $this);
+                    }
                 } catch (InvalidArgumentException $exception) {
                     // nothing
                 }

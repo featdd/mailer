@@ -79,6 +79,12 @@
       </trans-unit>
 
 
+      <trans-unit id="validation.form_submitted">
+        <source>The form was successfully submitted</source>
+      </trans-unit>
+      <trans-unit id="validation.form_error">
+        <source>Error while submitting the form, please try again later</source>
+      </trans-unit>
       <trans-unit id="validation.already_submitted">
         <source>The form has already been sent</source>
       </trans-unit>

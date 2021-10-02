@@ -79,6 +79,12 @@
       </trans-unit>
 
 
+      <trans-unit id="validation.form_submitted">
+        <target>Das Formular wurde erfolgreich verschickt</target>
+      </trans-unit>
+      <trans-unit id="validation.form_error">
+        <target>Fehler beim Versenden des Formulars, bitte versuchen Sie es später noch einmal</target>
+      </trans-unit>
       <trans-unit id="validation.already_submitted">
         <target>Das Formular wurde bereits abgeschickt</target>
       </trans-unit>

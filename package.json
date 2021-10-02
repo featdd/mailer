@@ -1,0 +1,32 @@
+{
+  "name": "mailer",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "vanilla-lazyload": "^17.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15",
+    "@babel/preset-env": "^7.15",
+    "@babel/register": "^7.15",
+    "cross-env": "^7.0",
+    "sass": "^1.42",
+    "sass-loader": "^12.1",
+    "css-loader": "^6.3",
+    "webpack": "^5.54",
+    "webpack-cli": "^4.8",
+    "mini-css-extract-plugin": "^2.3"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "browserslist": [
+    "defaults"
+  ],
+  "scripts": {
+    "build:production": "cross-env NODE_ENV=production webpack --config ./build/webpack.config.babel.js --progress",
+    "build:development": "cross-env NODE_ENV=development webpack --config ./build/webpack.config.babel.js --progress"
+  }
+}

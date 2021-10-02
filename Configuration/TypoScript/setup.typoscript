@@ -7,7 +7,7 @@ plugin.tx_mailer {
 
   settings {
     addJavaScript = {$plugin.tx_mailer.settings.addJavaScript}
-    addCss = {$plugin.tx_mailer.settings.addStylesheet}
+    addStylesheet = {$plugin.tx_mailer.settings.addStylesheet}
 
     javaScriptConfiguration {
       validClassName = {$plugin.tx_mailer.settings.javaScriptConfiguration.validClassName}
