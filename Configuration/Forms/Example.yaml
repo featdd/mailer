@@ -67,6 +67,8 @@ finisher:
       fromEmail: '{email}'
       toName: 'Max Mustermann'
       toEmail: 'mustermann@test.de'
+      attachments:
+        - 'file'
 
 #  - class: 'Featdd\Mailer\Finisher\RedirectFinisher'
 #    options:

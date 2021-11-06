@@ -124,7 +124,7 @@ class UploadFileTypeConverter extends AbstractTypeConverter
     protected function checkUploadError(array $source): void
     {
         if (false === is_array($source)) {
-            throw new UploadFileException('Not a valid file upload, don\'t to set enctype="multipart/form-data"!?');
+            throw new UploadFileException('Not a valid file upload, didn\'t have set enctype="multipart/form-data"!?');
         }
 
         switch ($source['error']) {

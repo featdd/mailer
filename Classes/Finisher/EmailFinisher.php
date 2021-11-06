@@ -25,6 +25,7 @@ use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mime\Address;
 use TYPO3\CMS\Core\Mail\FluidEmail as CoreFluidEmail;
 use TYPO3\CMS\Core\Mail\Mailer;
+use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 /**
@@ -154,7 +155,15 @@ class EmailFinisher extends AbstractFinisher
             ->setTemplatePath($template)
             ->assign('form', $form);
 
-        // TODO: handle file attachments
+        foreach ($this->options['attachments'] ?? [] as $attachment) {
+            if (true === $form->hasFieldValue($attachment)) {
+                $file = $form->getFieldValue($attachment)->getValue();
+
+                if ($file instanceof File) {
+                    $email->attachFromPath($file->getForLocalProcessing(), $file->getName(), $file->getMimeType());
+                }
+            }
+        }
 
         try {
             /** @var \TYPO3\CMS\Core\Mail\Mailer $mailer */
