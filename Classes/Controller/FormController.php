@@ -125,7 +125,7 @@ class FormController extends ActionController
             ) {
                 $this->view->setTemplatePathAndFilename($form->getConfiguration()->getSubmitTemplate());
             }
-        } catch (ConfigurationException | Exception $exception) {
+        } catch (Exception $exception) {
             $this->view->assign('message', $exception->getMessage());
             $this->view->setTemplatePathAndFilename(
                 true === Environment::getContext()->isDevelopment()
@@ -173,6 +173,10 @@ class FormController extends ActionController
         $this->view->setTemplatePathAndFilename($form->getConfiguration()->getSubmitTemplate());
 
         foreach ($form->getConfiguration()->getFinisher() as $finisher) {
+            if (true === $this->isXhrRequest && false === $finisher->isXhrCapable()) {
+                continue;
+            }
+
             try {
                 $finisher->process($form);
             } catch (FinisherException $exception) {

@@ -29,6 +29,11 @@ use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
 class RedirectFinisher extends AbstractFinisher
 {
     /**
+     * @var bool
+     */
+    protected bool $isXhrCapable = false;
+
+    /**
      * @param \Featdd\Mailer\Domain\Model\Form $form
      * @throws \Featdd\Mailer\Configuration\Exception
      * @throws \TYPO3\CMS\Core\Http\PropagateResponseException

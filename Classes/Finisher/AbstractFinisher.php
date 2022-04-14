@@ -25,6 +25,11 @@ abstract class AbstractFinisher implements FinisherInterface
     protected array $options = [];
 
     /**
+     * @var bool
+     */
+    protected bool $isXhrCapable = true;
+
+    /**
      * @param array $options
      */
     public function __construct(array $options = [])
@@ -44,7 +49,7 @@ abstract class AbstractFinisher implements FinisherInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public static function tcaPaletteLabel(): ?string
     {
@@ -98,5 +103,13 @@ abstract class AbstractFinisher implements FinisherInterface
     public function getOptions(): array
     {
         return $this->options;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isXhrCapable(): bool
+    {
+        return $this->isXhrCapable;
     }
 }

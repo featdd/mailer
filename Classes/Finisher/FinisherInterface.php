@@ -59,6 +59,11 @@ interface FinisherInterface
     public function getOptions(): array;
 
     /**
+     * @return bool
+     */
+    public function isXhrCapable(): bool;
+
+    /**
      * @param \Featdd\Mailer\Domain\Model\Form $form
      */
     public function process(Form $form): void;
