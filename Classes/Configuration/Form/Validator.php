@@ -17,7 +17,7 @@ use Featdd\Mailer\Utility\TranslationUtility;
 use TYPO3\CMS\Extbase\Validation\Validator\ValidatorInterface;
 
 /**
- * @package Featdd\Mailer\Configuration\
+ * @package Featdd\Mailer\Configuration\Form
  */
 class Validator
 {

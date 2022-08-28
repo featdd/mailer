@@ -19,7 +19,7 @@ use TYPO3\CMS\Extbase\Property\PropertyMappingConfigurationInterface;
 use TYPO3\CMS\Extbase\Property\TypeConverterInterface;
 
 /**
- * @package Featdd\Mailer\Configuration\Form
+ * @package Featdd\Mailer\Configuration\Form\Field
  */
 class TypeConverter implements Serializable
 {
@@ -49,7 +49,7 @@ class TypeConverter implements Serializable
      * @param mixed $value
      * @return mixed
      */
-    public function convertValue($value)
+    public function convertValue(mixed $value): mixed
     {
         try {
             $convertedValue = $this->concreteTypeConverter->convertFrom(
@@ -58,7 +58,7 @@ class TypeConverter implements Serializable
                 [],
                 $this->propertyMappingConfiguration
             );
-        } catch (TypeConverterException $exception) {
+        } catch (TypeConverterException) {
             $convertedValue = null;
         }
 
@@ -79,7 +79,7 @@ class TypeConverter implements Serializable
     /**
      * @param string $data
      */
-    public function unserialize($data)
+    public function unserialize(string $data)
     {
         $data = unserialize($data);
         $this->concreteTypeConverter = GeneralUtility::makeInstance($data['concreteTypeConverter']);

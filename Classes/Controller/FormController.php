@@ -19,7 +19,6 @@ use Featdd\Mailer\Property\TypeConverter\Exception as TypeConverterException;
 use Featdd\Mailer\Service\SessionService;
 use Featdd\Mailer\Utility\PageUtility;
 use Featdd\Mailer\Utility\PathUtility;
-use Featdd\Mailer\Utility\SettingsUtility;
 use Featdd\Mailer\View\TemplateView;
 use Psr\Http\Message\ResponseInterface;
 use Throwable;
@@ -156,10 +155,7 @@ class FormController extends ActionController
                     return (new JsonResponse([
                         'errors' => [
                             'form' => [
-                                LocalizationUtility::translate(
-                                    'validation.already_submitted',
-                                    SettingsUtility::EXTENSION_KEY
-                                ),
+                                LocalizationUtility::translate('validation.already_submitted', 'mailer'),
                             ],
                         ],
                     ]))->withStatus(403);
@@ -236,7 +232,7 @@ class FormController extends ActionController
                     $response['errors']['field'][$field->getName()] = [];
                 }
             }
-        } catch (NoSuchArgumentException $exception) {
+        } catch (NoSuchArgumentException) {
             // Ignore
         }
 

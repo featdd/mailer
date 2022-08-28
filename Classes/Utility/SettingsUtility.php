@@ -3,10 +3,6 @@ declare(strict_types=1);
 
 namespace Featdd\Mailer\Utility;
 
-use TYPO3\CMS\Core\TypoScript\TemplateService;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
-
 /***
  *
  * This file is part of the "Mailer" Extension for TYPO3 CMS.
@@ -18,6 +14,10 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
  *
  ***/
 
+use TYPO3\CMS\Core\TypoScript\TemplateService;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
+
 /**
  * @package Featdd\Mailer\Utility
  */
@@ -25,7 +25,7 @@ class SettingsUtility
 {
     public const EXTENSION_KEY = 'mailer';
     public const EXTENSION_NAME = 'Mailer';
-    public const EXTENSION_PLUGIN_KEY = 'tx_mailer';
+    public const EXTENSION_PLUGIN_KEY = 'tx_' . self::EXTENSION_KEY;
 
     /**
      * @var array|null

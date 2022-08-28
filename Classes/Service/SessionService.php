@@ -14,7 +14,6 @@ namespace Featdd\Mailer\Service;
  *
  ***/
 
-use Featdd\Mailer\Utility\SettingsUtility;
 use TYPO3\CMS\Core\SingletonInterface;
 use TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
@@ -24,7 +23,7 @@ use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
  */
 class SessionService implements SingletonInterface
 {
-    public const SESSION_KEY_PREFIX = SettingsUtility::EXTENSION_KEY . '_';
+    public const SESSION_KEY_PREFIX = 'mailer_';
 
     /**
      * @var \TYPO3\CMS\Frontend\Authentication\FrontendUserAuthentication

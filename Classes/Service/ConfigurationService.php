@@ -82,7 +82,7 @@ class ConfigurationService implements SingletonInterface
 
     /**
      * @param string $formIdentifier
-     * @return \Featdd\Mailer\Configuration\FormConfiguration|null
+     * @return \Featdd\Mailer\Configuration\FormConfiguration
      * @throws \Featdd\Mailer\Configuration\Exception
      * @throws \Featdd\Mailer\Utility\Exception\LanguageServiceException
      */
@@ -101,7 +101,7 @@ class ConfigurationService implements SingletonInterface
 
         try {
             $hasCachedConfiguration = $this->cache->has($cacheIdentifier);
-        } catch (InvalidArgumentException $exception) {
+        } catch (InvalidArgumentException) {
             $hasCachedConfiguration = false;
         }
 
@@ -110,7 +110,7 @@ class ConfigurationService implements SingletonInterface
         } else {
             try {
                 $package = $this->packageManager->getPackage($extensionKey);
-            } catch (UnknownPackageException $exception) {
+            } catch (UnknownPackageException) {
                 throw new Configuration\Form\Exception\DoesNotExistException('The extension "' . $extensionKey . '" does not exist');
             }
 
@@ -174,7 +174,7 @@ class ConfigurationService implements SingletonInterface
 
                     try {
                         $configurations[$identifier] = $this->loadConfiguration($identifier);
-                    } catch (Configuration\Exception | LanguageServiceException $exception) {
+                    } catch (Configuration\Exception|LanguageServiceException) {
                         // Ignore broken configurations
                     }
                 }
@@ -229,7 +229,7 @@ class ConfigurationService implements SingletonInterface
                   description = ' . $description . '
                   tt_content_defValues {
                     CType = mailer_form
-                    ' . ('default' !== $formIdentifier ? 'mailer_form = ' . $formIdentifier . '' : '') . '
+                    ' . ('default' !== $formIdentifier ? 'mailer_form = ' . $formIdentifier : '') . '
                   }
                 }
               }
@@ -281,7 +281,7 @@ class ConfigurationService implements SingletonInterface
 
         array_walk_recursive($configuration, function (&$item) use ($configuration) {
             if (true === is_string($item)) {
-                if ('t3://' === substr($item, 0, 5)) {
+                if (str_starts_with($item, 't3://')) {
                     $item = GeneralUtility::makeInstance(ContentObjectRenderer::class)->typoLink_URL([
                         'parameter' => $item,
                         'forceAbsoluteUrl' => true,
@@ -289,7 +289,7 @@ class ConfigurationService implements SingletonInterface
                 }
 
                 try {
-                    if (false !== strpos($item, '->')) {
+                    if (str_contains($item, '->')) {
                         $item = GeneralUtility::callUserFunction($item, $configuration, $this);
                     }
                 } catch (InvalidArgumentException $exception) {

@@ -57,7 +57,7 @@ class EmailFinisher extends AbstractFinisher
         return [
             'mailer_receiver_name' => [
                 'exclude' => true,
-                'label' => 'LLL:EXT:' . SettingsUtility::EXTENSION_KEY . '/Resources/Private/Language/locallang.xlf:finisher.email.receiver_name',
+                'label' => 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:finisher.email.receiver_name',
                 'config' => [
                     'type' => 'input',
                     'default' => null,
@@ -69,7 +69,7 @@ class EmailFinisher extends AbstractFinisher
             ],
             'mailer_receiver_email' => [
                 'exclude' => true,
-                'label' => 'LLL:EXT:' . SettingsUtility::EXTENSION_KEY . '/Resources/Private/Language/locallang.xlf:finisher.email.receiver_email',
+                'label' => 'LLL:EXT:mailer/Resources/Private/Language/locallang.xlf:finisher.email.receiver_email',
                 'config' => [
                     'type' => 'input',
                     'default' => null,

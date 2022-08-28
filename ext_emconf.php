@@ -1,6 +1,6 @@
 <?php
 
-$EM_CONF[\Featdd\Mailer\Utility\SettingsUtility::EXTENSION_KEY] = [
+$EM_CONF['mailer'] = [
     'title' => 'Mailer',
     'description' => 'Mail form extension for simply or most advanced form integration',
     'category' => 'plugin',

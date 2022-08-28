@@ -37,7 +37,7 @@ class FormConfiguration
     /**
      * @var array
      */
-    protected $templateVariables = [];
+    protected array $templateVariables = [];
 
     /**
      * @var bool
@@ -78,7 +78,7 @@ class FormConfiguration
      * @param string $identifier
      * @param string $formTemplate
      * @param string $submitTemplate
-     * @param array|string $templateVariables
+     * @param array $templateVariables
      * @param bool $multipleDispatchAllowed
      * @param string $wizardTitle
      * @param string $wizardDescription
